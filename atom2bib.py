@@ -46,7 +46,7 @@ else :
         bibData.write("  author={")
         #print(post.authors)
         if ( len(post.authors) == 1 ) :
-            bibData.write(post.author + "},")
+            bibData.write(post.author + "},\n")
         else :
             #print(len(post.authors))
             a = post.authors
@@ -58,6 +58,8 @@ else :
         bibData.write("  title={" + post.title + "},"+ "\n")
         bibData.write("  url={" + post.id + "},"+ "\n")
         bibData.write("  type={Preprint},"+ "\n")
+        #print(post.published_parsed)
+        bibData.write("  year={" + str(post.published_parsed[0]) + "},"+ "\n")
         bibData.write("  institution={" + d['feed']['title'] + "},"+ "\n")
         bibData.write("  number={" + repoid + ":" + paperid + "},"+ "\n")
         try:
