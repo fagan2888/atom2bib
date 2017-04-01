@@ -60,5 +60,8 @@ else :
         bibData.write("  type={Preprint},"+ "\n")
         bibData.write("  institution={" + d['feed']['title'] + "},"+ "\n")
         bibData.write("  number={" + repoid + ":" + paperid + "},"+ "\n")
-        bibData.write("  abstract={" + post.summary.split('\n')[2] + "},"+ "\n")
+        try:
+            bibData.write("  abstract={" + post.summary.split('\n')[2] + "},"+ "\n")
+        except Exception:
+            print("No abstract available for " + post.id)
         bibData.write("}" + "\n")
