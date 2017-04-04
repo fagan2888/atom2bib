@@ -57,13 +57,13 @@ else :
             bibData.write("},"+ "\n")
         bibData.write("  title={" + post.title + "},"+ "\n")
         bibData.write("  url={" + post.id + "},"+ "\n")
-        bibData.write("  type={Presentation},"+ "\n")
+        bibData.write("  type={Preprint},"+ "\n")
         #print(post.published_parsed)
         bibData.write("  year={" + str(post.published_parsed[0]) + "},"+ "\n")
         bibData.write("  institution={" + d['feed']['title'] + "},"+ "\n")
         bibData.write("  number={" + repoid + ":" + paperid + "},"+ "\n")
-        #try:
-        #    bibData.write("  abstract={" + post.summary.split('\n')[2] + "},"+ "\n")
-        #except Exception:
-        print("No abstract available for " + post.id)
+        try:
+            bibData.write("  abstract={" + post.summary.split('\n')[2] + "},"+ "\n")
+        except Exception:
+            print("No abstract available for " + post.id)
         bibData.write("}" + "\n")
